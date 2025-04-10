@@ -17,3 +17,5 @@ content-type: application/json
 #     ]
 # }
 
+### 服务器状态查询
+GET {{api}}/server/info
