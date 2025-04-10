@@ -1,4 +1,4 @@
-### 探测指定
+### 探测指定x,y位置的距离, 返回数据通过`websocket`的`notify_gcode_response`事件获取
 @api = http://lx2-0d9a34.local
 POST {{api}}/printer/gcode/script
 content-type: application/json
@@ -6,3 +6,14 @@ content-type: application/json
 {
     "script": "PROBE_POINT X=10 Y=23"
 }
+
+# notify_gcode_response
+
+# {
+#     "jsonrpc": "2.0",
+#     "method": "notify_gcode_response",
+#     "params": [
+#         "{\"code\": \"PROBE_POINT\", \"msg\": \"OK\", \"data\": \"x=10.0 y=23.0 z=74.4\"}"
+#     ]
+# }
+
