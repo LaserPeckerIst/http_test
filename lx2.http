@@ -1,0 +1,8 @@
+### 探测指定
+@api = http://lx2-0d9a34.local
+POST {{api}}/printer/gcode/script
+content-type: application/json
+
+{
+    "script": "PROBE_POINT X=10 Y=23"
+}

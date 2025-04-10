@@ -1,0 +1,35 @@
+GET https://www.baidu.com HTTP/2.0
+content-type: application/json
+
+{
+    "name":"Hendry",
+    "salary":"61888",
+    "age":"26"
+}
+
+### 
+
+curl --request POST \
+  --url https://www.baidu.com/ \
+  --header 'content-type: application/json' \
+  --header 'user-agent: vscode-restclient' \
+  --data '{"name":"Hendry","salary":"61888","age":"26"}'
+
+
+### test http
+GET http://192.168.31.120:8890/angcyo
+
+{
+    "name":"Hendry",
+    "salary":"61888",
+    "age":"26"
+}
+
+### test http
+POST http://192.168.31.120:8890/angcyo
+
+{
+    "name":"Hendry",
+    "salary":"61888",
+    "age":"26"
+}
