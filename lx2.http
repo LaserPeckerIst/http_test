@@ -18,7 +18,7 @@ content-type: application/json
 #     ]
 # }
 # 
-# 异常返回(情况1)↓
+# 异常返回(情况1), 忽略处理, 这是后端的日志↓
 # {
 #     "jsonrpc": "2.0",
 #     "method": "notify_gcode_response",
@@ -27,7 +27,7 @@ content-type: application/json
 #     ]
 # }
 # 
-# 异常返回(情况2)↓
+# 异常返回(情况2), 此时需要调用重启MCU`firmware_restart`接口↓
 # {
 #     "jsonrpc": "2.0",
 #     "method": "notify_gcode_response",
@@ -37,4 +37,74 @@ content-type: application/json
 # }
 
 ### 服务器状态查询
+@api = http://lx2-0d9a34.local
 GET {{api}}/server/info
+
+# {
+#   "result": {
+#     "klippy_connected": true,
+#     "klippy_state": "ready",
+#     "components": [
+#       "klippy_connection",
+#       "application",
+#       "websockets",
+#       "internal_transport",
+#       "dbus_manager",
+#       "database",
+#       "file_manager",
+#       "klippy_apis",
+#       "secrets",
+#       "template",
+#       "shell_command",
+#       "machine",
+#       "data_store",
+#       "proc_stats",
+#       "job_state",
+#       "job_queue",
+#       "http_client",
+#       "announcements",
+#       "webcam",
+#       "extensions",
+#       "update_manager",
+#       "safe_check",
+#       "wifi_customer_conf",
+#       "temp_control",
+#       "authorization",
+#       "zeroconf"
+#     ],
+#     "failed_components": [],
+#     "registered_directories": [
+#       "config",
+#       "zip_file",
+#       "logs",
+#       "gcodes",
+#       "config_examples",
+#       "docs"
+#     ],
+#     "warnings": [],
+#     "websocket_count": 2,
+#     "homed_axes": "xyz",
+#     "firmware_version": "LX2-V90007-1.0.7-25:04:02",
+#     "firmware_name": "LX2",
+#     "firmware_code": 90000,
+#     "firmware_data": "24:12:10_17:26:33",
+#     "firmware_hardware": "240820",
+#     "moonraker_version": "LX2-V90007-1.0.7-25:04:02"
+#   }
+# }
+
+### 重启MCU固件
+@api = http://lx2-0d9a34.local
+POST {{api}}/printer/firmware_restart
+
+# {
+#     "result": "ok"
+# }
+
+### 重启Klipper
+@api = http://lx2-0d9a34.local
+POST {{api}}/printer/restart
+
+# {
+#     "result": "ok"
+# }
