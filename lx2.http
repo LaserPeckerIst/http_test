@@ -101,10 +101,31 @@ POST {{api}}/printer/firmware_restart
 #     "result": "ok"
 # }
 
+# {
+#     "jsonrpc": "2.0",
+#     "method": "notify_gcode_response",
+#     "params": [
+#         "// Klipper state: Disconnect"
+#     ]
+# }
+
 ### 重启Klipper
 @api = http://lx2-0d9a34.local
 POST {{api}}/printer/restart
 
 # {
 #     "result": "ok"
+# }
+
+# {
+#     "jsonrpc": "2.0",
+#     "method": "notify_klippy_disconnected"
+# }
+
+# {
+#     "jsonrpc": "2.0",
+#     "method": "notify_gcode_response",
+#     "params": [
+#         "// Klipper state: Disconnect"
+#     ]
 # }
