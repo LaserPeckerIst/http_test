@@ -8,12 +8,31 @@ content-type: application/json
 }
 
 # notify_gcode_response
-
+#
+# 正常返回↓
 # {
 #     "jsonrpc": "2.0",
 #     "method": "notify_gcode_response",
 #     "params": [
 #         "{\"code\": \"PROBE_POINT\", \"msg\": \"OK\", \"data\": \"x=10.0 y=23.0 z=74.4\"}"
+#     ]
+# }
+# 
+# 异常返回(情况1)↓
+# {
+#     "jsonrpc": "2.0",
+#     "method": "notify_gcode_response",
+#     "params": [
+#         "// wake up fill_light_value=1.0"
+#     ]
+# }
+# 
+# 异常返回(情况2)↓
+# {
+#     "jsonrpc": "2.0",
+#     "method": "notify_gcode_response",
+#     "params": [
+#         "!! MCU 'mcu' shutdown: Timer too close"
 #     ]
 # }
 
