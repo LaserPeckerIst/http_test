@@ -93,6 +93,36 @@ GET {{api}}/server/info
 #   }
 # }
 
+
+### 按照指定速度(mm/min)预览多个矩形位置
+@api = http://lx2-0d9a34.local
+POST {{api}}/printer/print/Preview
+content-type: application/json
+
+{
+    "speed": 16000,
+    "objlist": [
+        {
+            "coord_x": 100,
+            "coord_y": 100,
+            "obj_w": 1,
+            "obj_h": 1
+        }
+    ]
+}
+
+# {
+#   "result": "ok"
+# }
+
+### 停止预览
+@api = http://lx2-0d9a34.local
+POST {{api}}/printer/print/stopPreview
+
+# {
+#   "result": "ok"
+# }
+
 ### 重启MCU固件
 @api = http://lx2-0d9a34.local
 POST {{api}}/printer/firmware_restart
