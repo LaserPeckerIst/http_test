@@ -1,0 +1,8 @@
+### 获取wifi状态
+@api = http://lx2-0d9a34.local
+GET {{api}}/server/Wifi/status
+
+### 摄像头拍照
+@api = http://lx2-0d9a34.local
+GET {{api}}/webcam/?action=snapshot&cacheBust=1744281867970
+
