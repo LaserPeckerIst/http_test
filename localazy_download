@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Turn off echo 关闭回显
+set +x
+
+mkdir -p .download/android
+
+localazy download

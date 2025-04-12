@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Turn off echo 关闭回显
+set +x
+
+pwd
+
+# localazy upload -s
+
+localazy upload
