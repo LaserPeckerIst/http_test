@@ -1,0 +1,18 @@
+{
+    "writeKey": "a6987465487156702530-3ad70727a4b1bb4b58f464ca0aa83572433644844500fa69d8f081f0b66875ce",
+    "readKey": "a6987465487156702530-6d2c3a6bae7373a4aa4da01ac08b45366e4584ab9fd34c3626a24b59495679d9",
+    "upload": {
+        "type": "android",
+        "folder": "localazy_android",
+        "files": {
+            "pattern": "**.xml",
+            "lang": "zh-Hans-CN"
+        }
+    },
+    "download": {
+        "folder": ".download/android",
+        "files": {
+            "output": "${lang}/${file}"
+        }
+    }
+}

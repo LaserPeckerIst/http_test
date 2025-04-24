@@ -123,6 +123,20 @@ POST {{api}}/printer/print/stopPreview
 #   "result": "ok"
 # }
 
+
+### 执行GCode脚本, `script`内容就是要执行的GCode指令, 注意用`\n`结尾
+@api = http://lx2-0d9a34.local
+POST {{api}}/printer/gcode/script
+content-type: application/json
+
+{
+    "script": "G0 X0 Y0\n"
+}
+
+# {
+#   "result": "ok"
+# }
+
 ### 重启MCU固件
 @api = http://lx2-0d9a34.local
 POST {{api}}/printer/firmware_restart
