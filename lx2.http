@@ -1,3 +1,6 @@
+# REST Client
+# https://github.com/Huachao/vscode-restclient/blob/master/README.md
+
 ### 探测指定x,y位置的距离, 返回数据通过`websocket`的`notify_gcode_response`事件获取
 @api = http://lx2-0d9a34.local
 POST {{api}}/printer/gcode/script
@@ -172,4 +175,58 @@ POST {{api}}/printer/restart
 #     "params": [
 #         "// Klipper state: Disconnect"
 #     ]
+# }
+
+### 查询固件版本信息
+@api = https://alternate.hingin.com
+POST {{api}}/apply/getUpgradeApplyByVersion
+content-type: application/json
+
+{
+    "version": "90010",
+    "type": 0
+}
+
+# {
+#   "errMsg": "操作成功",
+#   "code": 200,
+#   "data": {
+#     "name": "90010",
+#     "versionCode": 90010,
+#     "type": 16,
+#     "path": "https://oss.laserpecker.net/apply/firmware/LX2_V90010.zip",
+#     "description": "1.Fix known bugs\r\n2.Fix known bugs\r\n3.Fix known bugs\r\n4.Fix known bugs",
+#     "descriptionEn": "1.Fix known bugs\r\n2.Fix known bugs\r\n3.Fix known bugs\r\n4.Fix known bugs",
+#     "version": "9.0010",
+#     "isOpenDowngrade": 1,
+#     "createTime": "2025-04-09 18:20:31",
+#     "detailsList": null
+#   }
+# }
+
+### 固件升级
+@api = http://lx2-0d9a34.local
+POST {{api}}/server/files/upload
+Content-Type: multipart/form-data; boundary=--------------------------------angcyo
+
+--------------------------------angcyo
+Content-Disposition: form-data; name="root"
+zip_file
+--------------------------------angcyo
+Content-Disposition: form-data; name="type"
+update
+--------------------------------angcyo
+Content-Disposition: form-data; name="file"; filename="LX2_V90010.zip"
+< ./LX2_V90010.zip
+--------------------------------angcyo--
+
+# {
+#     "action": "create_file",
+#     "item": {
+#         "modified": 1747641947.3215744,
+#         "size": 40679743,
+#         "permissions": "rw",
+#         "path": "LX2_V90010.zip",
+#         "root": "zip_file"
+#     }
 # }
