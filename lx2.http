@@ -230,3 +230,13 @@ Content-Disposition: form-data; name="file"; filename="LX2_V90010.zip"
 #         "root": "zip_file"
 #     }
 # }
+
+### 清除激光器打印时间
+@api = http://lx2-0d9a34.local
+POST {{api}}/server/laserTimeClean
+
+# {
+#   "result": {
+#     "state": "okay"
+#   }
+# }
